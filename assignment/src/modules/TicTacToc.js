@@ -42,7 +42,7 @@ function TicTacToc(props) {
         // checking first dia
         if(row == col){
             for(let index= 0; index < rowColCount; index++){
-                if(matrix[index][index] !== status.player){
+                if(localMatrix[index][index] !== status.player){
                     hasDia = false;
                 } 
             }
@@ -50,6 +50,8 @@ function TicTacToc(props) {
         else {
             hasDia = false;
         }
+        // debugger;
+
 
         // rev dia
         let hasRevDia= true
@@ -96,6 +98,8 @@ function TicTacToc(props) {
         if(status.gameStarted){
             // reset the game
             defaultDynamicMatrix();
+            setStatus({...status, gameStarted: true, hasPlayerWon: false, playerWon: "",});
+
         }
         else {
             // start game
